@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerBehavior\PlayerBehaviorIdle.cs" />
     <Compile Include="Assets\EzySlice\SlicerExtensions.cs" />
+    <Compile Include="Assets\Scripts\SliceMeshes-master\Slicer.cs" />
     <Compile Include="Assets\EzySlice\Framework\IntersectionResult.cs" />
     <Compile Include="Assets\Scripts\Player\AnimationManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
@@ -67,11 +68,14 @@
     <Compile Include="Assets\EzySlice\Framework\TextureRegion.cs" />
     <Compile Include="Assets\EzySlice\Framework\Intersector.cs" />
     <Compile Include="Assets\EzySlice\Slicer.cs" />
+    <Compile Include="Assets\Scripts\SliceMeshes-master\SliceListener.cs" />
     <Compile Include="Assets\EzySlice\SlicedHull.cs" />
     <Compile Include="Assets\EzySlice\Framework\Triangulator.cs" />
     <Compile Include="Assets\EzySlice\Framework\Triangle.cs" />
-    <Compile Include="Assets\Scripts\SliceMeshes-master\Slicer.cs" />
-    <Compile Include="Assets\Scripts\SliceMeshes-master\SliceListener.cs" />
+    <Compile Include="Assets\Scripts\SliceMeshes-master\SlicedObjectDestroy.cs" />
+    <Compile Include="Assets\Scripts\Player\AnimatorManager.cs" />
+    <Compile Include="Assets\Scripts\Player\ControllerSimpleMove.cs" />
+    <Compile Include="Assets\Scripts\Player\ControllerMove.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cartoon_Farm_Crops\README.txt" />

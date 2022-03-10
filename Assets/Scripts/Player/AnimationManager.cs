@@ -10,10 +10,17 @@ public class AnimationManager : MonoBehaviour
     [SerializeField]
     AnimationClip[] clips;
 
+    [SerializeField]
+    GameObject sword;
+
     private void Start()
     {
         if(anim == null)
         anim = gameObject.GetComponent<Animation>();
+
+        if(sword == null)
+        sword = gameObject.transform.Find("Sword").gameObject;
+        sword.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -30,9 +37,14 @@ public class AnimationManager : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.E))
         {
+            sword.SetActive(true);
             anim.Play(clips[2].name);
             return;
         }
-            anim.Play(clips[0].name);
+        else
+        {
+            //sword.SetActive(false);
+        }
+            //anim.Play(clips[0].name);
     }
 }

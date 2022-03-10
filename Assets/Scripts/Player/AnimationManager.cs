@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
+    [SerializeField]
     Animation anim;
+
+    [SerializeField]
+    AnimationClip[] clips;
 
     private void Start()
     {
+        if(anim == null)
         anim = gameObject.GetComponent<Animation>();
-
-
     }
 
     private void FixedUpdate()
@@ -22,11 +25,14 @@ public class AnimationManager : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
-            anim.Play(anim.GetClip("SlowRun").name);
+            anim.Play(clips[1].name);
+            return;
         }
-        else
+        if (Input.GetKey(KeyCode.E))
         {
-            anim.Play(anim.GetClip("HappyIdle").name);
+            anim.Play(clips[2].name);
+            return;
         }
+            anim.Play(clips[0].name);
     }
 }

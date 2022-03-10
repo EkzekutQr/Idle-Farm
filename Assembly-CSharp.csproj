@@ -59,7 +59,6 @@
     <Compile Include="Assets\Scripts\Player\AnimationManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\EzySlice\Framework\Plane.cs" />
-    <Compile Include="Assets\Scripts\Camera\SimpleCameraController.cs" />
     <Compile Include="Assets\Scripts\PlayerBehavior\PlayerBehaviorManager.cs" />
     <Compile Include="Assets\Scripts\PlayerBehavior\IPlayerBehavior.cs" />
     <Compile Include="Assets\Scripts\PlayerBehavior\PlayerBehaviorWalk.cs" />
@@ -71,6 +70,8 @@
     <Compile Include="Assets\EzySlice\SlicedHull.cs" />
     <Compile Include="Assets\EzySlice\Framework\Triangulator.cs" />
     <Compile Include="Assets\EzySlice\Framework\Triangle.cs" />
+    <Compile Include="Assets\Scripts\SliceMeshes-master\Slicer.cs" />
+    <Compile Include="Assets\Scripts\SliceMeshes-master\SliceListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cartoon_Farm_Crops\README.txt" />

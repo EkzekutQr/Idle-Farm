@@ -10,8 +10,19 @@ public class AnimatorManager : MonoBehaviour
     [SerializeField]
     private GameObject sword;
 
+    [SerializeField]
+    HarvestButton harvestButton;
+
+    [HideInInspector]
+    public bool isHarvesting;
+
+    [HideInInspector]
+    public bool isMoving;
+
     private void Update()
     {
+        isHarvesting = harvestButton.buttonPressed;
+
         AnimationSwitch();
         SwordActivator();
     }
@@ -20,20 +31,20 @@ public class AnimatorManager : MonoBehaviour
         animator.SetBool("SlowRun", false);
         animator.SetBool("Harvest", false);
 
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)) && Input.GetKey(KeyCode.E))
+        if (isHarvesting && isMoving)/*((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)) && Input.GetKey(KeyCode.E))*/
         {
             animator.SetBool("SlowRun", true);
             animator.SetBool("Harvest", true);
             return;
         }
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if (isMoving)/*(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))*/
         {
             animator.SetBool("SlowRun", true);
             return;
         }
 
-        if (Input.GetKey(KeyCode.E))
+        if (isHarvesting)/*(Input.GetKey(KeyCode.E))*/
         {
             animator.SetBool("Harvest", true);
             return;

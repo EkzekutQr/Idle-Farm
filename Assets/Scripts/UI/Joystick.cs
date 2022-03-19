@@ -7,69 +7,120 @@ using UnityEngine.EventSystems;
 public class Joystick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
-	public RectTransform center;
-	public RectTransform knob;
-	public float range;
-	public bool fixedJoystick;
+    public RectTransform center;
+    public RectTransform knob;
+    public float range;
+    public bool fixedJoystick;
 
-	public Vector2 direction;
+    public Vector2 direction;
 
-	private Vector2 _start;
-	private bool _isOverPanel;
-	private bool _isShow;
+    private Vector2 _start;
+    private bool _isOverPanel;
+    private bool _isShow;
 
-    public bool IsShow { get => _isShow;}
+    [SerializeField]
+    AnimatorManager animatorManager;
+
+    private int movingTouchIndex = 0;
+    private Touch touch;
+
+    [SerializeField]
+    private bool canMove = false;
+
+    public bool IsShow { get => _isShow; }
+
+    [SerializeField]
+    List<Touch> touches = new List<Touch>();
 
     private void Start()
-	{
-		ShowHide(false);
-	}
+    {
+        ShowHide(false, Vector2.zero);
+        touch = new Touch();
+    }
 
-	private void Update()
-	{
-		Vector2 pos = Input.mousePosition;
-		if (Input.GetMouseButtonDown(0) && _isOverPanel)
-		{
-			ShowHide(true);
-			_start = pos;
+    private void Update()
+    {
+        touches.Clear();
+        touches.AddRange(Input.touches);
+        
+        if(Input.touchCount != 0)
+        {
+            //Debug.Log(Input.GetTouch(movingTouchIndex).phase);
+            //Debug.Log(Input.GetTouch(movingTouchIndex));
+            //Debug.Log(Input.touchCount - 1);
+            //Debug.Log(Input.touches[Input.touchCount - 1].position);
+        }
+        //movingTouchIndex = touches[touches.Count - 1].
+        Move();
+        //Debug.Log("Touch position" + touch.position);
+        //Debug.Log("joystick position" + knob.position);
+        //Debug.Log(Input.touches[Input.touchCount - 1].position);
+    }
 
-			knob.position = pos;
-			center.position = pos;
-		}
-		else if (Input.GetMouseButton(0) && IsShow)
-		{
-			knob.position = pos;
-			knob.position = center.position + Vector3.ClampMagnitude(knob.position - center.position, center.sizeDelta.x * range);
+    private void Move()
+    {
+        if (Input.touchCount > 0)
+        {
+            for(int i = 0; i < Input.touchCount; i++)
+            {
+                if(Input.touches[i].position.x < 500)
+                {
+                    touch = Input.touches[i];
+                }
+            }
 
-			if (knob.position != Input.mousePosition && !fixedJoystick)
-			{
-				Vector3 outsideBoundsVector = Input.mousePosition - knob.position;
-				center.position += outsideBoundsVector;
-			}
+            Vector2 pos;
 
-			direction = (knob.position - center.position).normalized;
-		}
-		if (Input.GetMouseButtonUp(0) && IsShow)
-		{
-			ShowHide(false);
-			direction = Vector2.zero;
-		}
-	}
+            pos = touch.position;
 
-	private void ShowHide(bool state)
-	{
-		center.gameObject.SetActive(state);
-		knob.gameObject.SetActive(state);
-		_isShow = state;
-	}
+            if (touch.phase == TouchPhase.Began/*(TouchPhase.Moved | TouchPhase.Stationary)*//* && _isOverPanel*/)
+            {
+                ShowHide(true, pos);
+            }
+            if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary /*&& IsShow*/)
+            {
+                knob.position = pos;
+                knob.position = center.position + Vector3.ClampMagnitude(knob.position - center.position, center.sizeDelta.x * range);
 
-	public void OnPointerEnter(PointerEventData eventData)
-	{
-		_isOverPanel = true;
-	}
+                if (knob.position != (Vector3)touch.position && !fixedJoystick)
+                {
+                    Vector3 outsideBoundsVector = (Vector3)touch.position - knob.position;
+                    center.position += outsideBoundsVector;
+                }
 
-	public void OnPointerExit(PointerEventData eventData)
-	{
-		_isOverPanel = false;
-	}
+                direction = (knob.position - center.position).normalized;
+            }
+            if (touch.phase == (TouchPhase.Ended)/* && IsShow*/)
+            {
+                ShowHide(false, Vector2.zero);
+                direction = Vector2.zero;
+            }
+        }
+    }
+
+    private void ShowHide(bool state, Vector2 pos)
+    {
+        center.gameObject.SetActive(state);
+        knob.gameObject.SetActive(state);
+        _isShow = state;
+
+
+        _start = pos;
+
+        knob.position = pos;
+        center.position = pos;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        //movingTouchIndex = Input.touches.Length - 1;
+        _isOverPanel = true;
+        canMove = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        canMove = false;
+        _isOverPanel = false;
+    }
 }

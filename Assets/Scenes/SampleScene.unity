@@ -1506,6 +1506,8 @@ MonoBehaviour:
   range: 0.7
   fixedJoystick: 1
   direction: {x: 0, y: 0}
+  animatorManager: {fileID: 1846735269}
+  canMove: 0
 --- !u!1001 &782764356
 PrefabInstance:
   m_ObjectHideFlags: 0

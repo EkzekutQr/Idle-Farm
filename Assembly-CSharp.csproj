@@ -62,9 +62,11 @@
     <Compile Include="Assets\EzySlice\Framework\Plane.cs" />
     <Compile Include="Assets\Scripts\PlayerBehavior\PlayerBehaviorManager.cs" />
     <Compile Include="Assets\Scripts\PlayerBehavior\IPlayerBehavior.cs" />
+    <Compile Include="Assets\Scripts\UI\Joystick.cs" />
     <Compile Include="Assets\Scripts\SliceMeshes-master\SlicedObjectDestroy.cs" />
     <Compile Include="Assets\Scripts\PlayerBehavior\PlayerBehaviorWalk.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraTracking.cs" />
+    <Compile Include="Assets\Scripts\Player\JoystickController.cs" />
     <Compile Include="Assets\EzySlice\Framework\Line.cs" />
     <Compile Include="Assets\EzySlice\Framework\TextureRegion.cs" />
     <Compile Include="Assets\EzySlice\Framework\Intersector.cs" />
@@ -72,11 +74,10 @@
     <Compile Include="Assets\Scripts\SliceMeshes-master\SliceListener.cs" />
     <Compile Include="Assets\EzySlice\SlicedHull.cs" />
     <Compile Include="Assets\Scripts\Player\AnimatorManager.cs" />
+    <Compile Include="Assets\Scripts\UI\HarvestButton.cs" />
     <Compile Include="Assets\EzySlice\Framework\Triangulator.cs" />
     <Compile Include="Assets\EzySlice\Framework\Triangle.cs" />
-    <Compile Include="Assets\Scripts\UI\Joystick.cs" />
-    <Compile Include="Assets\Scripts\Player\JoystickController.cs" />
-    <Compile Include="Assets\Scripts\UI\HarvestButton.cs" />
+    <Compile Include="Assets\Scripts\Player\JoystickOriginal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cartoon_Farm_Crops\README.txt" />

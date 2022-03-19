@@ -6,7 +6,7 @@ public class Slicer : MonoBehaviour
     public LayerMask sliceMask;
     public bool isTouched;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (isTouched == true)
         {
@@ -24,14 +24,20 @@ public class Slicer : MonoBehaviour
                 GameObject lowerHullGameobject = slicedObject.CreateLowerHull(objectToBeSliced.gameObject, materialAfterSlice);
 
 
-                MakeItPhysical(upperHullGameobject);
-                MakeItPhysical(lowerHullGameobject);
+                Destroy(upperHullGameobject.GetComponent<MeshCollider>());
+                upperHullGameobject.AddComponent<CapsuleCollider>();
+                upperHullGameobject.AddComponent<Rigidbody>();
+
+                Destroy(lowerHullGameobject.GetComponent<MeshCollider>());
+                lowerHullGameobject.AddComponent<CapsuleCollider>();
+                lowerHullGameobject.AddComponent<Rigidbody>();
+
+
 
                 upperHullGameobject.transform.position = objectToBeSliced.transform.position;
                 upperHullGameobject.transform.localScale = objectToBeSliced.transform.lossyScale;
                 upperHullGameobject.transform.rotation = objectToBeSliced.transform.rotation;
                 upperHullGameobject.layer = 8;
-                upperHullGameobject.gameObject.GetComponent<Rigidbody>().AddForce(objectToBeSliced.gameObject.GetComponent<Rigidbody>().velocity, ForceMode.Impulse);
                 upperHullGameobject.AddComponent<SlicedObjectDestroy>();
 
 
@@ -47,11 +53,6 @@ public class Slicer : MonoBehaviour
         }
     }
 
-    private void MakeItPhysical(GameObject obj)
-    {
-        obj.AddComponent<MeshCollider>().convex = true;
-        obj.AddComponent<Rigidbody>();
-    }
 
     private SlicedHull SliceObject(GameObject obj, Material crossSectionMaterial = null)
     {

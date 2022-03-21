@@ -68,19 +68,23 @@
     <Compile Include="Assets\Scripts\Camera\CameraTracking.cs" />
     <Compile Include="Assets\Scripts\Player\JoystickController.cs" />
     <Compile Include="Assets\EzySlice\Framework\Line.cs" />
+    <Compile Include="Assets\Scripts\Grass\GrassBehavior.cs" />
     <Compile Include="Assets\EzySlice\Framework\TextureRegion.cs" />
     <Compile Include="Assets\EzySlice\Framework\Intersector.cs" />
     <Compile Include="Assets\EzySlice\Slicer.cs" />
+    <Compile Include="Assets\Scripts\Player\BackPackBehavior.cs" />
     <Compile Include="Assets\Scripts\Player\JoystickOriginal.cs" />
     <Compile Include="Assets\Scripts\SliceMeshes-master\SliceListener.cs" />
+    <Compile Include="Assets\Scripts\Grass\GrassBlockBehavior.cs" />
     <Compile Include="Assets\EzySlice\SlicedHull.cs" />
     <Compile Include="Assets\Scripts\Player\AnimatorManager.cs" />
     <Compile Include="Assets\Scripts\UI\HarvestButton.cs" />
     <Compile Include="Assets\EzySlice\Framework\Triangulator.cs" />
     <Compile Include="Assets\EzySlice\Framework\Triangle.cs" />
-    <Compile Include="Assets\Scripts\Grass\GrassBehavior.cs" />
-    <Compile Include="Assets\Scripts\Player\BackPackBehavior.cs" />
-    <Compile Include="Assets\Scripts\Grass\GrassBlockBehavior.cs" />
+    <Compile Include="Assets\Scripts\Barn\DropBlock.cs" />
+    <Compile Include="Assets\Scripts\Barn\SellBlock.cs" />
+    <Compile Include="Assets\Scripts\UI\CoinMove.cs" />
+    <Compile Include="Assets\Scripts\UI\MoneyTaker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cartoon_Farm_Crops\README.txt" />
@@ -713,6 +717,9 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

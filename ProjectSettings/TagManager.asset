@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Sliceable
   - GrassBlock
+  - Coin
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Joystick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Joystick : MonoBehaviour
 {
 
     public RectTransform center;
@@ -14,18 +14,11 @@ public class Joystick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public Vector2 direction;
 
-    private Vector2 _start;
-    private bool _isOverPanel;
     private bool _isShow;
 
-    [SerializeField]
-    AnimatorManager animatorManager;
 
-    private int movingTouchIndex = 0;
     private Touch touch;
 
-    [SerializeField]
-    private bool canMove = false;
 
     public bool IsShow { get => _isShow; }
 
@@ -43,18 +36,7 @@ public class Joystick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         touches.Clear();
         touches.AddRange(Input.touches);
         
-        if(Input.touchCount != 0)
-        {
-            //Debug.Log(Input.GetTouch(movingTouchIndex).phase);
-            //Debug.Log(Input.GetTouch(movingTouchIndex));
-            //Debug.Log(Input.touchCount - 1);
-            //Debug.Log(Input.touches[Input.touchCount - 1].position);
-        }
-        //movingTouchIndex = touches[touches.Count - 1].
         Move();
-        //Debug.Log("Touch position" + touch.position);
-        //Debug.Log("joystick position" + knob.position);
-        //Debug.Log(Input.touches[Input.touchCount - 1].position);
     }
 
     private void Move()
@@ -104,23 +86,7 @@ public class Joystick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         knob.gameObject.SetActive(state);
         _isShow = state;
 
-
-        _start = pos;
-
         knob.position = pos;
         center.position = pos;
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        //movingTouchIndex = Input.touches.Length - 1;
-        _isOverPanel = true;
-        canMove = true;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        canMove = false;
-        _isOverPanel = false;
     }
 }

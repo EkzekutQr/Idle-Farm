@@ -71,13 +71,16 @@
     <Compile Include="Assets\EzySlice\Framework\TextureRegion.cs" />
     <Compile Include="Assets\EzySlice\Framework\Intersector.cs" />
     <Compile Include="Assets\EzySlice\Slicer.cs" />
+    <Compile Include="Assets\Scripts\Player\JoystickOriginal.cs" />
     <Compile Include="Assets\Scripts\SliceMeshes-master\SliceListener.cs" />
     <Compile Include="Assets\EzySlice\SlicedHull.cs" />
     <Compile Include="Assets\Scripts\Player\AnimatorManager.cs" />
     <Compile Include="Assets\Scripts\UI\HarvestButton.cs" />
     <Compile Include="Assets\EzySlice\Framework\Triangulator.cs" />
     <Compile Include="Assets\EzySlice\Framework\Triangle.cs" />
-    <Compile Include="Assets\Scripts\Player\JoystickOriginal.cs" />
+    <Compile Include="Assets\Scripts\Grass\GrassBehavior.cs" />
+    <Compile Include="Assets\Scripts\Player\BackPackBehavior.cs" />
+    <Compile Include="Assets\Scripts\Grass\GrassBlockBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cartoon_Farm_Crops\README.txt" />

@@ -48,7 +48,8 @@ public class Slicer : MonoBehaviour
                 lowerHullGameobject.layer = 8;
                 lowerHullGameobject.AddComponent<SlicedObjectDestroy>();
 
-                Destroy(objectToBeSliced.gameObject);
+                objectToBeSliced.GetComponent<GrassBehavior>().DestroyGrass();
+                //Destroy(objectToBeSliced.gameObject);
             }
         }
     }

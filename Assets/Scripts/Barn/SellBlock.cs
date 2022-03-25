@@ -20,24 +20,21 @@ public class SellBlock : MonoBehaviour
     [SerializeField]
     private GameObject coinCounter;
 
-    [SerializeField]
-    private GameObject canvas;
-
-    private void GetCoin()
+    private void GetCoin(int grassPrice)
     {
         GameObject newCoin = Instantiate(coin);
         newCoin.transform.position = coinSpawnPoint.transform.position;
         newCoin.transform.SetParent(coinCounter.transform);
         newCoin.GetComponent<CoinMove>().moveTarget = coinImage.transform;
+        newCoin.GetComponent<CoinMove>().grassPrice = grassPrice;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "GrassBlock")
         {
-            Debug.Log("SellCheck");
             backPack.SellBlock(other.gameObject);
-            GetCoin();
+            GetCoin(other.gameObject.GetComponent<GrassBlockBehavior>().BlockPrice);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BackPackBehavior : MonoBehaviour
 {
@@ -12,65 +13,57 @@ public class BackPackBehavior : MonoBehaviour
 
     public int coins = 0;
 
-    [SerializeField]
-    private float blockFlySpeed = 1;
-
     private int blockIndex;
 
+    [SerializeField]
+    GameObject dropTarget;
+
+    [SerializeField]
+    GameObject backPackCouner;
+
+    public List<GameObject> Blocks { get => blocks; set => blocks = value; }
+
+    private void Update()
+    {
+        backPackCouner.GetComponent<Text>().text = Blocks.Count.ToString() + "/" + backPackSize.ToString();
+    }
     private void PickUpBlock(GameObject block)
     {
-        if (blocks.Count < backPackSize)
+        if (Blocks.Count < backPackSize)
         {
-            if (block.GetComponent<GrassBlockBehavior>().isCollected == false)
+            if (block.GetComponent<GrassBlockBehavior>().IsCollected == false)
             {
-                blocks.Add(block);
-                block.GetComponent<GrassBlockBehavior>().isCollected = true;
-                block.transform.SetParent(gameObject.transform);
-                if (blocks.Count == 1)
-                {
-                    block.transform.localPosition = Vector3.zero;
-                }
-                else
-                {
-                    block.transform.localPosition = Vector3.zero + new Vector3(0, 0.0415f * (blocks.Count - 1), 0);
-                }
-                block.transform.rotation = gameObject.transform.rotation;
-                //Destroy(block.GetComponent<BoxCollider>());
-                Destroy(block.GetComponent<Rigidbody>());
+                block.transform.SetParent(gameObject.transform.GetChild(transform.childCount - (Blocks.Count % transform.childCount) - 1));
+
+                block.GetComponent<GrassBlockBehavior>().CollectedSwitch(Blocks.Count, true);
+
+                Blocks.Add(block);
             }
         }
     }
-    public void DropBlock()
-    {
-        //for (blockIndex = (blocks.Count - 1); blockIndex > 0; blockIndex--)
-        //{
-        //    Debug.Log(blockIndex);
-        //    Debug.Log(blocks.Count);
-        //    Invoke("DropBlockLogic", 1f);
-        //}
-    }
     public IEnumerator DropBlockCourutine()
     {
-        for (blockIndex = (blocks.Count - 1); blockIndex >= 0; blockIndex--)
+        for (blockIndex = (Blocks.Count - 1); blockIndex >= 0; blockIndex--)
         {
             DropBlockLogic();
 
             yield return new WaitForSeconds(0.1f);
         }
     }
-    public void DropBlockLogic()
+    private void DropBlockLogic()
     {
-        blocks[blockIndex].transform.SetParent(null);
-        blocks[blockIndex].GetComponent<GrassBlockBehavior>().isBlockDrop = true;
+        Blocks[blockIndex].transform.SetParent(null);
+        Blocks[blockIndex].GetComponent<GrassBlockBehavior>().DropBlockSwitch(true, dropTarget);
     }
 
     public void SellBlock(GameObject block)
     {
-        if (blocks.Count > 0)
+        if (Blocks.Count > 0)
         {
-            blocks.Remove(block);
+            Blocks.Remove(block);
             Destroy(block);
             coins++;
+            Debug.Log(Blocks.Count);
         }
     }
 

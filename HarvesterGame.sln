@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BzKovSoft.ObjectSlicer", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BzKovSoft.CharacterSlicer", "BzKovSoft.CharacterSlicer.csproj", "{B3DD0435-9694-C774-D93A-44674BEE18ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{308704B7-88AE-4296-85AA-44B188B42A0F}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BzKovSoft.CharacterSlicer.Samples", "BzKovSoft.CharacterSlicer.Samples.csproj", "{E113D65E-4AAC-8C4C-99EA-050A513236AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BzKovSoft.ObjectSlicer.Editor", "BzKovSoft.ObjectSlicer.Editor.csproj", "{13022AF1-0430-5E4C-8B57-A51D42C03690}"
@@ -37,6 +39,10 @@ Global
 		{B3DD0435-9694-C774-D93A-44674BEE18ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3DD0435-9694-C774-D93A-44674BEE18ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3DD0435-9694-C774-D93A-44674BEE18ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{308704B7-88AE-4296-85AA-44B188B42A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{308704B7-88AE-4296-85AA-44B188B42A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{308704B7-88AE-4296-85AA-44B188B42A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{308704B7-88AE-4296-85AA-44B188B42A0F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E113D65E-4AAC-8C4C-99EA-050A513236AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E113D65E-4AAC-8C4C-99EA-050A513236AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E113D65E-4AAC-8C4C-99EA-050A513236AE}.Release|Any CPU.ActiveCfg = Release|Any CPU

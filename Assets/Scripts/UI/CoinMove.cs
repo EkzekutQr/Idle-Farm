@@ -9,6 +9,8 @@ public class CoinMove : MonoBehaviour
 
     public Transform moveTarget;
 
+    public int grassPrice;
+
     void Update()
     {
         if(moveTarget != null)

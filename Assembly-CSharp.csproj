@@ -88,10 +88,6 @@
     <Compile Include="Assets\EzySlice\Framework\Triangle.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Cartoon_Farm_Crops\README.txt" />
-    <None Include="Assets\Julien Tonsuso\Modular Fantasy Bridges\README.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity2(current)\2020.3.25f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -305,11 +301,11 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>D:\Unity2(current)\2020.3.25f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\Unity2(current)\2020.3.25f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -707,6 +703,12 @@
     <Reference Include="Unity.ShaderGraph.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
@@ -725,37 +727,11 @@
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{308704B7-88AE-4296-85AA-44B188B42A0F}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
-    <ProjectReference Include="BzKovSoft.ObjectSlicer.Editor.csproj">
-      <Project>{13022AF1-0430-5E4C-8B57-A51D42C03690}</Project>
-      <Name>BzKovSoft.ObjectSlicer.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="BzKovSoft.ObjectSlicer.csproj">
-      <Project>{1CBDEA1C-7E62-8ABD-3F71-7B88CB5D033C}</Project>
-      <Name>BzKovSoft.ObjectSlicer</Name>
-    </ProjectReference>
-    <ProjectReference Include="BzKovSoft.CharacterSlicer.csproj">
-      <Project>{B3DD0435-9694-C774-D93A-44674BEE18ED}</Project>
-      <Name>BzKovSoft.CharacterSlicer</Name>
-    </ProjectReference>
-    <ProjectReference Include="BzKovSoft.CharacterSlicer.Samples.csproj">
-      <Project>{E113D65E-4AAC-8C4C-99EA-050A513236AE}</Project>
-      <Name>BzKovSoft.CharacterSlicer.Samples</Name>
-    </ProjectReference>
-    <ProjectReference Include="BzKovSoft.ObjectSlicer.Samples.csproj">
-      <Project>{B2C9C7DD-222A-FC5A-C707-F8746BE75D6E}</Project>
-      <Name>BzKovSoft.ObjectSlicer.Samples</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
